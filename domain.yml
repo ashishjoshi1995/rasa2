@@ -1,0 +1,127 @@
+session_config:
+  session_expiration_time: 60.0
+  carry_over_slots_to_new_session: true
+intents:
+- greet
+- goodbye
+- affirm
+- deny
+- customer_support_initiatives
+- my_contractnum_is
+- prepaid_increased_credit
+- prepaid_recharge
+- prepaid_credit_loan
+- disconnection
+- get_credit_loan
+- thanks
+- defer_bill_payment
+- enroll_finanical_support
+- my_reason_is
+
+responses:
+  utter_prepaid_increased_credit:
+  - text: "All the prepaid customers are entitled to an increased emergency credit of upto $100."
+  utter_prepaid_credit_loan:
+  - text: "In case you are unable to buy credit you can enroll for a credit loan, would you like to avail a loan?"
+    buttons:
+    - title: "Enroll"
+      payload: /get_credit_loan
+  utter_prepaid_recharge:
+  - text: "Please visit the following portal to recharge your account: https://myutility/recharge"
+  utter_disconnection:
+  - text: "As per the directive from the government, there will be no disconnections to any existing accounts in the next couple of months until further instructions given by the government."
+  utter_not_found:
+  - text: "You have entered an incorrect contract number"
+  utter_greet:
+  - text: "Hey! How are you?"
+  utter_goodbye:
+  - text: "Bye"
+  utter_ask_CONTRACTNUM:
+  - text: "Please enter your contract number to proceed"
+  utter_offer_prepaidgood:
+  - text: "Based on your usage, we have the following offers tailored for you"
+    buttons:
+    - title: Increased emergency credit
+      payload: /prepaid_increased_credit
+    - title: Option to get a credit loan
+      payload: /prepaid_credit_loan
+    - title: Suspension of all disconnections 
+      payload: /disconnection
+  utter_offer_prepaidbad:
+  - text: Based ou your usage we have the following the offers tailored for you
+    buttons:
+    - title: Increased emergency credit
+      payload: /prepaid_increased_credit
+    - title: Get a credit loan
+      payload: /prepaid_credit_loan
+    - title: Do a recharge
+      payload: /prepaid_recharge
+    - title: All disconnections suspended
+      payload: /disconnection
+  utter_success:
+  - text: Success!
+  utter_ask_REASON:
+  - text: What is the problem you are facing?
+  - text: What is your reason for availing this offer?
+
+  utter_customer_support2:
+  - text: Are you a prepaid customer or a postpaid customer?
+    buttons: 
+    - title: Prepaid customer
+      paload: /prepaid_customer
+    - title: Postpaid Customer
+      payload: /postpaid_customer
+  utter_thanks:
+  - text: Always happy to help
+  utter_offer_postpaid:
+  - text: "Their will be no transaction charges for all online bill payments. Further, based ou your usage we have the following the offers tailored for you"
+    buttons: 
+    - title: DEFER bill payments for three months
+      payload: /defer_bill_payment
+    - title: Suspension of all disconnections 
+      payload: /disconnection
+    - title: Enroll for financial support
+      payload: /enroll_finanical_support
+
+
+
+entities:
+- CONTRACTNUM 
+- REASON
+slots:
+  NAME:
+    type: text
+  CONTRACTNUM:
+    type: text
+  CUSTOMERTYPE:
+    type: categorical
+    values:
+      - PREPAIDGOOD
+      - PREPAIDBAD
+      - POSTPAIDGOOD
+      - POSTPAIDBAD
+      - NOTFOUND
+  REASON:
+    type: unfeaturized
+actions:
+- utter_offer_postpaid
+- utter_goodbye
+- utter_ask_CONTRACTNUM
+- utter_greet
+- utter_not_found
+- utter_offer_prepaidgood
+- utter_offer_prepaidbad
+- utter_prepaid_increased_credit
+- utter_prepaid_credit_loan
+- utter_prepaid_recharge
+- utter_disconnection
+- utter_success
+- utter_customer_support2
+- utter_thanks
+- utter_ask_REASON
+
+forms: 
+- ask_contract_number
+- financial_support_form
+- defer_bill_form
+
