@@ -84,7 +84,7 @@ class FinancialSupportForm(FormAction):
 		return []
 
 	def slot_mappings(self) -> Dict[Text, Union[Dict, List[Dict]]]:
-		return {"CONTRACTNUM": self.from_entity(entity="CONTRACTNUM", intent="my_contractnum_is"),"REASON": self.from_entity(entity="REASON", intent="my_reason_is"),}
+		return {"CONTRACTNUM": self.from_entity(entity="CONTRACTNUM", intent="my_contractnum_is"),"REASON": self.from_text(intent="inform"),}
 
 
 class BillDefermentForm(FormAction):
@@ -101,7 +101,7 @@ class BillDefermentForm(FormAction):
 		return []
 
 	def slot_mappings(self) -> Dict[Text, Union[Dict, List[Dict]]]:
-		return {"CONTRACTNUM": self.from_entity(entity="CONTRACTNUM", intent="my_contractnum_is"),"REASON": self.from_entity(entity="REASON", intent="my_reason_is"),}
+		return {"CONTRACTNUM": self.from_entity(entity="CONTRACTNUM", intent="my_contractnum_is"),"REASON": self.from_text(intent="inform"),}
 
 
 

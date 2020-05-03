@@ -16,7 +16,7 @@ intents:
 - thanks
 - defer_bill_payment
 - enroll_finanical_support
-- my_reason_is
+- inform
 
 responses:
   utter_prepaid_increased_credit:

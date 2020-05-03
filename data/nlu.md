@@ -88,16 +88,16 @@
 - I need financial help with my bills
 - provide me financial support with bill payments
 
-## intent:my_reason_is
-- I have [Other important bills to pay](REASON)
-- I [lost job](REASON) due to COVID
-- I [can't do Business](REASON) due to Lockdown
-- Lockown has resulted in my [employment termination](REASON)
-- I was [fired](REASON) due to covid
-- I am in a [financially poor](REASON) condition
-- I [can't afford](REASON) it right now
-- My business in a rough patch
-- facing [financial crunch](REASON)
+## intent:inform
+- [I have Other important bills to pay](REASON)
+- [I lost job due to COVID](REASON)
+- [I can't do Business due to Lockdown](REASON)
+- [Lockown has resulted in my employment termination](REASON)
+- [I was fired due to covid](REASON)
+- [I am in a financially poor condition](REASON)
+- [I can't afford it right now](REASON)
+- [My business in a rough patch](REASON)
+- [facing financial crunch](REASON)
 
 
 ## intent:prepaid_recharge
@@ -133,4 +133,6 @@
 
 ## intent:show_offers_again
 - please show me all offers again
+
+
 
