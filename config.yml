@@ -10,3 +10,12 @@ policies:
   - name: KerasPolicy
   - name: MappingPolicy
   - name: "FormPolicy"
+
+pipeline:
+- name: "SpacyNLP"
+- name: "SpacyTokenizer"
+- name: "SpacyFeaturizer"
+- name: "RegexFeaturizer"
+- name: "CRFEntityExtractor"
+- name: "EntitySynonymMapper"
+- name: "SklearnIntentClassifier"

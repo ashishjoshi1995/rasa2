@@ -24,8 +24,8 @@ def create_Bill():
 	c.execute("INSERT INTO BILLS VALUES('Sarthak', 'Bhargava', '9899808458', 'Bill_124', '7896', '$500', 'Pending', '12/05/2020')")
 	c.execute("INSERT INTO BILLS VALUES('Sweta', 'Bhoi', '9620000852', 'Bill_125', '5679', '$500', 'Pending', '12/05/2020')")
 
-create_table()
-data_entry()
+#create_table()
+#data_entry()
 query()
 #create_Bill()
 conn.commit()

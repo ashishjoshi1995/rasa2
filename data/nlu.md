@@ -98,6 +98,27 @@
 - [I can't afford it right now](REASON)
 - [My business in a rough patch](REASON)
 - [facing financial crunch](REASON)
+- [9898989898](PHONENUM)
+- [9898989898](PHONENUM) is my phone number
+- my phone number is [9898989898](PHONENUM)
+- my number is [9898989898](PHONENUM)
+- [9898989898](ADDRESS) is my number
+- [INDORE](ADDRESS)
+- [PUNE](ADDRESS) is my address
+- I live in [MUMBAI](ADDRESS)
+- my address is [DELHI](ADDRESS)
+- [Kolkata](ADDRESS) where i live
+- [sarthak.bhargava@accenture.com](EMAIL)
+- [yogesh.dhond@accenture.com](EMAIL)
+- [sweta.bhoi@accenture.com](EMAIL)
+- [ashish.f.joshi@accenture.com](EMAIL)
+- [sarthak.bhargava@accenture.com](EMAIL)
+
+## regex:CONTRACTNUM
+- \b\d{5}\b
+
+## regex:PHONENUM
+- \b\d{10}\b
 
 
 ## intent:prepaid_recharge
@@ -111,6 +132,16 @@
 - is there a way to make online topup recharge
 - can I buy topup online
 - can i buy credit online
+
+## intent:register_intent
+- I want to register online
+- register me to your online platform
+- please register me to the online portal
+- register me
+- i want to make my registration
+- registration
+- I want to make registration to the online portal
+- register me to the the online portal
 
 ## intent:prepaid_credit_loan
 - can I get credit loan
@@ -134,5 +165,40 @@
 ## intent:show_offers_again
 - please show me all offers again
 
+## intent:late_payment_enquiry:
+- I missed the last date of payment
+- is there a fine for late payment of the bill
+- will I be fined for late payment of my electricity bill
+- is there a fine for late payment
+- what if I pay the bill a little late
+- how do i avoid fines for late payment of electricity bill
+
+## intent:change_in_tariff:
+- is there a change in tariff?
+- has the tariff changed
+- can you tell me about the change in tariff
+- what is the new tariff you are charging
+- what is the tariff that you charge to you customer
+- tell me the tariff please
+- can you tell me the rate of the electricity
+- how much do you charge for electricity 
+
+## intent:hotline_enquiry
+- is there a hotline number
+- is there an emergency number I can call to for urgen assistance
+- is there a emergency hotline
+- is there a customer support hotline
+- tell me about the customer support hotline
+- do you have a customer support hotline
+- I want to know a customer support hotline
+- tell me a number I can call to in cases of emergency
+- who do I call if I need immediate assistace
+- whom should I call for immediate help
+
+## intent:logout
+- logout
+- i want to log out
+- please log me out of system
+- log out
 
 

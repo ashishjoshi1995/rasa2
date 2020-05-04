@@ -104,7 +104,26 @@ class BillDefermentForm(FormAction):
 		return {"CONTRACTNUM": self.from_entity(entity="CONTRACTNUM", intent="my_contractnum_is"),"REASON": self.from_text(intent="inform"),}
 
 
+class RegistrationForm(FormAction):
+	def name(self) -> Text:
+		return "registration_form"
 
+	@staticmethod
+	def required_slots(tracker: Tracker) -> List[Text]:
+		return ["CONTRACTNUM", "PHONENUM", "ADDRESS", "EMAIL"]
+
+	def submit(self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: Dict[Text, Any],) -> List[Dict]:
+		conn = sqlite3.connect('tutorial.db')
+		c = conn.cursor()
+		print("hello from the registration form")
+		c.execute("INSERT INTO CUSTOMERS VALUES('"+tracker.get_slot("CONTRACTNUM")+"', 'pwd', '"+tracker.get_slot("PHONENUM")+"', '"+tracker.get_slot("ADDRESS")+"', '"+tracker.get_slot("EMAIL")+"', 'PREPAIDBAD', '"+tracker.get_slot("CONTRACTNUM")+"')")
+		conn.commit()
+		c.close()
+		conn.close()
+		return []
+
+	def slot_mappings(self) -> Dict[Text, Union[Dict, List[Dict]]]:
+		return {"CONTRACTNUM": self.from_entity(entity="CONTRACTNUM", intent="my_contractnum_is"),"PHONENUM": self.from_text(intent="inform"),"ADDRESS": self.from_text(intent="inform"),"EMAIL": self.from_text(intent="inform"),}
 
 
 

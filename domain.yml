@@ -17,8 +17,18 @@ intents:
 - defer_bill_payment
 - enroll_finanical_support
 - inform
+- register_intent
+- late_payment_enquiry
+- change_in_tariff
+- hotline_enquiry
 
 responses:
+  utter_hotline_enquiry:
+  - text: "Hello, if you need emergency customer support please dial 109. This is a toll free hotline number. Additionally, you can also call to 1800 1800 1279"
+  utter_late_payment_enquiry:
+  - text: "We have decided to waive-off all late-payment fines for all our customers as a gesture to support them in these challenging times."
+  utter_change_in_tariff:
+  - text: "The current tariff is $4/ KWH. As per the directives fron the government, there will not be any chnage to the tariff for the next couple of months"
   utter_prepaid_increased_credit:
   - text: "All the prepaid customers are entitled to an increased emergency credit of upto $100."
   utter_prepaid_credit_loan:
@@ -33,7 +43,10 @@ responses:
   utter_not_found:
   - text: "You have entered an incorrect contract number"
   utter_greet:
-  - text: "Hey! How are you?"
+  - text: "Hey! I am Matthew. The Post-COVID world will be a digital world. If you are not registered with our digital platforms, now is the time"
+    buttons:
+    - title: "Register"
+      payload: /register_intent
   utter_goodbye:
   - text: "Bye"
   utter_ask_CONTRACTNUM:
@@ -83,11 +96,25 @@ responses:
     - title: Enroll for financial support
       payload: /enroll_finanical_support
 
+  utter_ask_PHONENUM:
+  - text: "Please tell me your phone number"
+  utter_ask_EMAIL:
+  - text: "Please tell me your email id"
+  utter_ask_PASSWORD:
+  - text: "Please choose a password for yourself"
+  utter_ask_ADDRESS:
+  - text: "Please tell me your address"
+
+
 
 
 entities:
 - CONTRACTNUM 
 - REASON
+- PHONENUM
+- EMAIL
+- PASSWORD
+- ADDRESS
 slots:
   NAME:
     type: text
@@ -103,6 +130,14 @@ slots:
       - NOTFOUND
   REASON:
     type: unfeaturized
+  PHONENUM:
+    type: unfeaturized
+  EMAIL:
+    type: unfeaturized
+  PASSWORD:
+    type: unfeaturized
+  ADDRESS:
+    type: unfeaturized  
 actions:
 - utter_offer_postpaid
 - utter_goodbye
@@ -119,9 +154,17 @@ actions:
 - utter_customer_support2
 - utter_thanks
 - utter_ask_REASON
+- utter_ask_PHONENUM
+- utter_ask_EMAIL
+- utter_ask_PASSWORD
+- utter_ask_ADDRESS
+- utter_late_payment_enquiry
+- utter_change_in_tariff
+- utter_hotline_enquiry
 
 forms: 
 - ask_contract_number
 - financial_support_form
 - defer_bill_form
+- registration_form
 

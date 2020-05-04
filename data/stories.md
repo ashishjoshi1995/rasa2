@@ -6,6 +6,17 @@
 * goodbye
   - utter_goodbye
 
+## register
+* register_intent
+  - registration_form
+  - form{"name": "registration_form"}
+  - form{"name": null}
+  - slot{"CONTRACTNUM" : "97564"}
+  - slot{"ADDRESS": "INDORE"}
+  - slot{"PHONENUM": "9756475739"}
+  - slot{"EMAIL": "sweta.bhoi@accenture.com"}
+  - utter_success
+
 ## customer_support_initiatives
 * customer_support_initiatives
   - ask_contract_number
@@ -97,5 +108,16 @@
 ## disconnection
 * disconnection
   - utter_disconnection
+
+## utter_late_payment_enquiry
+* late_payment_enquiry
+  - utter_late_payment_enquiry
+
+
+## utter_change_in_tariff
+* change_in_tariff
+  - utter_change_in_tariff
+
+
 
 
