@@ -56,13 +56,6 @@
 - tell me about some offers that you have
 - are there any offers for customers due to COVID-19
 
-## intent:my_contractnum_is
-- My contract number is is [97654](CONTRACTNUM) units
-- It's [97564](CONTRACTNUM) units
-- [90909](CONTRACTNUM) is my reading
-- [13556](CONTRACTNUM) units
-- [23435](CONTRACTNUM)
-- My meter reads [98088](CONTRACTNUM) units
 
 ## intent:prepaid_increased_credit
 - is there an increment in emergency credit
@@ -97,6 +90,7 @@
 - [I am in a financially poor condition](REASON)
 - [I can't afford it right now](REASON)
 - [My business in a rough patch](REASON)
+- [I lost my job](REASON)
 - [facing financial crunch](REASON)
 - [9898989898](PHONENUM)
 - [9898989898](PHONENUM) is my phone number
@@ -113,6 +107,12 @@
 - [sweta.bhoi@accenture.com](EMAIL)
 - [ashish.f.joshi@accenture.com](EMAIL)
 - [sarthak.bhargava@accenture.com](EMAIL)
+- My contract number is is [97654](CONTRACTNUM) 
+- It's [97564](CONTRACTNUM) 
+- [90909](CONTRACTNUM) is my contract number
+- [13556](CONTRACTNUM) units
+- [23435](CONTRACTNUM)
+- My bill reads [98088](CONTRACTNUM) 
 
 ## regex:CONTRACTNUM
 - \b\d{5}\b
@@ -201,4 +201,9 @@
 - please log me out of system
 - log out
 
-
+## intent:explain
+- why
+- why is that
+- why do you need it
+- why do you need to know that?
+- could you explain why you need it?

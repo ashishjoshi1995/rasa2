@@ -7,7 +7,6 @@ intents:
 - affirm
 - deny
 - customer_support_initiatives
-- my_contractnum_is
 - prepaid_increased_credit
 - prepaid_recharge
 - prepaid_credit_loan
@@ -21,6 +20,8 @@ intents:
 - late_payment_enquiry
 - change_in_tariff
 - hotline_enquiry
+- logout
+- explain
 
 responses:
   utter_hotline_enquiry:
@@ -105,7 +106,12 @@ responses:
   utter_ask_ADDRESS:
   - text: "Please tell me your address"
 
-
+  utter_explain_why_PHONENUM:
+  - text: We need to know your phone number to send SMS and link your online account to your existing legacy account in our databases 
+  utter_explain_why_EMAIL:
+  - text: We need your email so we can contact you, especially during lockdowns and social distancing
+  utter_explain_why_ADDRESS:
+  - text: We need your address so we can provide you seamless field services
 
 
 entities:
@@ -138,6 +144,13 @@ slots:
     type: unfeaturized
   ADDRESS:
     type: unfeaturized  
+  requested_slot:
+    type: categorical
+    values:
+      - ADDRESS
+      - EMAIL
+      - PHONENUM
+
 actions:
 - utter_offer_postpaid
 - utter_goodbye
@@ -161,6 +174,7 @@ actions:
 - utter_late_payment_enquiry
 - utter_change_in_tariff
 - utter_hotline_enquiry
+- action_logout
 
 forms: 
 - ask_contract_number

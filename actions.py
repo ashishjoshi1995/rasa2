@@ -29,6 +29,21 @@ from rasa_sdk.events import SlotSet
 #         dispatcher.utter_message(text="Hello World!")
 #
 #         return []
+
+class ActionHelloWorld(Action):
+
+     def name(self) -> Text:
+         return "action_logout"
+
+     def run(self, dispatcher: CollectingDispatcher,
+             tracker: Tracker,
+             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+
+         dispatcher.utter_message(text="User has been successfully logged out.")
+
+         return [SlotSet("CONTRACTNUM", None), SlotSet("CUSTOMERTYPE", None)]
+
+
 class GetContractNum(FormAction):
 	def name(self) -> Text:
 		return "ask_contract_number"
@@ -68,7 +83,7 @@ class GetContractNum(FormAction):
 		return []
 
 	def slot_mappings(self) -> Dict[Text, Union[Dict, List[Dict]]]:
-		return {"CONTRACTNUM": self.from_entity(entity="CONTRACTNUM", intent="my_contractnum_is"),}
+		return {"CONTRACTNUM": self.from_entity(entity="CONTRACTNUM", intent="inform"),}
 
 class FinancialSupportForm(FormAction):
 	def name(self) -> Text:
@@ -84,7 +99,7 @@ class FinancialSupportForm(FormAction):
 		return []
 
 	def slot_mappings(self) -> Dict[Text, Union[Dict, List[Dict]]]:
-		return {"CONTRACTNUM": self.from_entity(entity="CONTRACTNUM", intent="my_contractnum_is"),"REASON": self.from_text(intent="inform"),}
+		return {"CONTRACTNUM": self.from_entity(entity="CONTRACTNUM", intent="inform"),"REASON": self.from_text(intent="inform"),}
 
 
 class BillDefermentForm(FormAction):
@@ -101,7 +116,7 @@ class BillDefermentForm(FormAction):
 		return []
 
 	def slot_mappings(self) -> Dict[Text, Union[Dict, List[Dict]]]:
-		return {"CONTRACTNUM": self.from_entity(entity="CONTRACTNUM", intent="my_contractnum_is"),"REASON": self.from_text(intent="inform"),}
+		return {"CONTRACTNUM": self.from_entity(entity="CONTRACTNUM", intent="inform"),"REASON": self.from_text(intent="inform"),}
 
 
 class RegistrationForm(FormAction):
@@ -116,14 +131,16 @@ class RegistrationForm(FormAction):
 		conn = sqlite3.connect('tutorial.db')
 		c = conn.cursor()
 		print("hello from the registration form")
+
 		c.execute("INSERT INTO CUSTOMERS VALUES('"+tracker.get_slot("CONTRACTNUM")+"', 'pwd', '"+tracker.get_slot("PHONENUM")+"', '"+tracker.get_slot("ADDRESS")+"', '"+tracker.get_slot("EMAIL")+"', 'PREPAIDBAD', '"+tracker.get_slot("CONTRACTNUM")+"')")
+		dispatcher.utter_message("Congratulations, you have been successfully registered. Remeber your password in pwd. You can reset it later.")
 		conn.commit()
 		c.close()
 		conn.close()
 		return []
 
 	def slot_mappings(self) -> Dict[Text, Union[Dict, List[Dict]]]:
-		return {"CONTRACTNUM": self.from_entity(entity="CONTRACTNUM", intent="my_contractnum_is"),"PHONENUM": self.from_text(intent="inform"),"ADDRESS": self.from_text(intent="inform"),"EMAIL": self.from_text(intent="inform"),}
+		return {"CONTRACTNUM": self.from_entity(entity="CONTRACTNUM", intent="inform"),"PHONENUM": self.from_text(intent="inform"),"ADDRESS": self.from_text(intent="inform"),"EMAIL": self.from_text(intent="inform"),}
 
 
 

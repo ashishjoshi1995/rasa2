@@ -15,7 +15,37 @@
   - slot{"ADDRESS": "INDORE"}
   - slot{"PHONENUM": "9756475739"}
   - slot{"EMAIL": "sweta.bhoi@accenture.com"}
-  - utter_success
+
+
+## register faq
+* register_intent
+  - registration_form
+  - form{"name": "registration_form"}
+  - slot{"requested_slot": "EMAIL"}
+* explain
+  - utter_explain_why_EMAIL
+  - registration_form
+  - form{"name": null}
+
+## register faq-2
+* register_intent
+  - registration_form
+  - form{"name": "registration_form"}
+  - slot{"requested_slot": "ADDRESS"}
+* explain
+  - utter_explain_why_ADDRESS
+  - registration_form
+  - form{"name": null}
+
+## register faq-3
+* register_intent
+  - registration_form
+  - form{"name": "registration_form"}
+  - slot{"requested_slot": "PHONENUM"}
+* explain
+  - utter_explain_why_PHONENUM
+  - registration_form
+  - form{"name": null}
 
 ## customer_support_initiatives
 * customer_support_initiatives
@@ -81,6 +111,8 @@
   - slot{"CONTRACTNUM" : "97564"}
   - utter_offer_postpaid
 
+
+
 ## purchase credit loan
 * get_credit_loan
   - ask_contract_number
@@ -119,5 +151,8 @@
   - utter_change_in_tariff
 
 
-
+## reset
+*logout
+  - action_logout
+  - slot{"CONTRACTNUM" : "None"}
 
